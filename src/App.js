@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import  FirstComponent from './Components/learning-examples/FirstComponent';
 import  SecondComponent from './Components/learning-examples/SecondComponent';
 import Counter from './Components/Counter/Counter'
+import TodoApp from './Components/todo/TodoApp'
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Counter/>
+      {/*<Counter/>*/}
+      <TodoApp/>
     </div>
   );
 }
