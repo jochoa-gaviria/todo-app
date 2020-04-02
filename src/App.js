@@ -5,6 +5,7 @@ import Counter from './Components/Counter/Counter'
 import TodoApp from './Components/todo/TodoApp'
 import logo from './logo.svg';
 import './App.css';
+import './bootstrap.css'
 
 function App() {
   return (
