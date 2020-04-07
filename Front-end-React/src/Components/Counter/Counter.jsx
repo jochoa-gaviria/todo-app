@@ -48,15 +48,15 @@ class Counter extends Component{
 
 class CounterButton extends Component {
     
-    //Define the initial state
-    constructor(){
-        super(); //Error, no calling this method is an error. 
-        // this.state={
-        //     counter : 0 // counter is a variable name.
-        // }
-        // this.incrementCount = this.incrementCount.bind(this)
-        // this.decrementCount = this.decrementCount.bind(this)
-    }
+    // Define the initial state
+    // constructor(){
+    //     super(); //Error, no calling this method is an error. 
+    //     this.state={
+    //         counter : 0 // counter is a variable name.
+    //     }
+    //     this.incrementCount = this.incrementCount.bind(this)
+    //     this.decrementCount = this.decrementCount.bind(this)
+    // }
 
     render(){
         return(
