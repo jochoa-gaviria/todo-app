@@ -1,4 +1,4 @@
-package com.jochoatest.restfulwebservices;
+package com.jochoatest.restfulwebservices.helloworld;
 
 public class HelloWorldBean {
 	private String message;
