@@ -19,18 +19,47 @@ class TodoComponent extends Component{
 
 
     componentDidMount(){
+
+        if(this.state.id===-1) return
+
         let username = authenticationService.getLoggedInUserName()
         todoDataService.retrieveTodo(username,this.state.id)
         .then(response => this.setState({
             description: response.data.description,
             targetDate: moment(response.data.targetDate).format('YYYY-MM-DD'),
-            isDone : response.data.isDone
+            isDone : response.data.done
         }))
         .catch()
     }
 
     onSubmit(values){
         //console.log(values)
+        let username = authenticationService.getLoggedInUserName()
+        if(this.state.id===-1){
+            todoDataService.addTodo(username,{
+            id: values.id,
+            description: values.description,
+            targetDate: values.targetDate,
+            done: values.isDone
+            }).then(
+                ()=>{
+                    this.props.history.push(`/todos/`)
+                }
+            )
+            .catch()
+        }else{
+            todoDataService.updateTodo(username,this.state.id, {
+            id: values.id,
+            description: values.description,
+            targetDate: values.targetDate,
+            done: values.isDone
+            }).then(
+                ()=>{
+                    this.props.history.push(`/todos/`)
+                }
+            )
+            .catch()
+        }
     }
 
     validate(values){
@@ -49,7 +78,7 @@ class TodoComponent extends Component{
     }
 
     render(){
-        let {description,targetDate,isDone} = this.state
+        let {id, description,targetDate,isDone} = this.state
         //let targetDate = this.state.targetDate
     return (
         <div>
@@ -59,7 +88,7 @@ class TodoComponent extends Component{
                 initialValues={{
                     /*description:description,
                     targetDate:targetDate*/ //Same thing that line under this.
-                    description,targetDate,isDone
+                    id,description,targetDate,isDone
                 }}
                 onSubmit={this.onSubmit}
                 validate={this.validate}
@@ -74,7 +103,7 @@ class TodoComponent extends Component{
                                 <ErrorMessage name="targetDate" component="div" className="alert alert-warning"/>
                                 <fieldset className="form-group">
                                     <label>Description</label>
-                                    <Field className="form-control" type="text" name="description"></Field>
+                                    <Field className="form-control" type="text" name="description" placeholder="Enter a description here..."></Field>
                                 </fieldset>
                                 <fieldset className="form-group">
                                     <label>Target date</label>

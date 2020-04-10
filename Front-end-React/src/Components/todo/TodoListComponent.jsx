@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import todoDataService from '../../api/todo/todoDataService.js'
 import AuthenticationService from './AuthenticationService.js'
+import './TodoListComponent.css'
+import moment from 'moment'
 
 class ListTodosComponent extends Component{
     constructor(props){
@@ -11,6 +13,8 @@ class ListTodosComponent extends Component{
         }
         this.deleteTodoClicked = this.deleteTodoClicked.bind(this)
         this.refreshTodos = this.refreshTodos.bind(this)
+        this.updateTodoClicked=this.updateTodoClicked.bind(this)
+        this.addTodoClicked=this.addTodoClicked.bind(this)
     }
 
     componentDidMount(){
@@ -29,15 +33,15 @@ class ListTodosComponent extends Component{
         <div>
             <h1>List Todos</h1>
             {this.state.message && <div className="alert alert-success">{this.state.message}</div>}
-            <div className="container">
-                <table className="table">
+            <div className="table-wrapper-scroll-y my-custom-scrollbar">
+                <table className="table table-striped mb-0">
                     <thead>
                         <tr>
-                            <th>Description</th>
-                            <th>Is Completed?</th>
-                            <th>Target date</th>
-                            <th>Update</th>
-                            <th>Delete</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Is Completed?</th>
+                            <th scope="col">Target date</th>
+                            <th scope="col">Update</th>
+                            <th scope="col">Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -47,15 +51,21 @@ class ListTodosComponent extends Component{
                             <tr key={todo.id}>
                                 <td>{todo.description}</td>
                                 <td>{todo.done.toString()}</td>
-                                <td>{todo.targetDate.toString()}</td>
+                                <td>{moment(todo.targetDate).format('YYYY-MM-DD')}</td>
                                 <td><button className="btn btn-success" onClick={()=>this.updateTodoClicked(todo.id)}>Update</button></td>
                                 <td><button className="btn btn-warning" onClick={()=>this.deleteTodoClicked(todo.id)}>Delete</button></td>
                             </tr>
                         )
                         }
-
                     </tbody>
                 </table>
+               <div className="container">
+                    <div className="row justify-content-md-center">
+                        <div className="row col-lg-3">
+                            <button className="btn btn-outline-success col-md-3" onClick={this.addTodoClicked}>Add new todo</button>
+                        </div>
+                    </div>
+               </div>
             </div>
         </div>
         )
@@ -91,6 +101,10 @@ class ListTodosComponent extends Component{
         //     this.refreshTodos()
         // })
         // .catch(error => this.handleError(error))
+    }
+
+    addTodoClicked(){
+        this.props.history.push(`/todos/-1`)
     }
 }
 
