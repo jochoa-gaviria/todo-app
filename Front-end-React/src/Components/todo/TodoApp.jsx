@@ -9,9 +9,14 @@ import WelcomeComponent from './WelcomeComponent'
 import ListTodosComponent from './TodoListComponent'
 import ErrorComponent from './ErrorComponent'
 import TodoComponent from './TodoComponent'
+import AuthenticationService from './AuthenticationService'
 
 class TodoApp extends Component {
     render(){
+        //Without this line when I reload the entire website I have an error, //Even the session_storage is active.
+        if(AuthenticationService.isUserLoggedIn()){
+            AuthenticationService.setupAxiosInterceptor(); 
+        }
         return (
             <div className="todoApp">
                 <Router>

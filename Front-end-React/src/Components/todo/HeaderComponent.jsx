@@ -23,7 +23,7 @@ class HeaderComponent extends Component{
             
             <header>
                 <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-                    <div><a className="navbar-brand" href="https://github.com/jochoa-gaviria">My GitHub</a></div>
+                    <div><a className="navbar-brand" href="https://github.com/jochoa-gaviria" target="_blank" rel="noopener noreferrer">My GitHub</a></div>
                     <ul className="navbar-nav">
                         {isUserLogIn && <li><Link className="nav-link" to="/welcome/jochoaTest">Home</Link></li>}
                         {isUserLogIn && <li><Link className="nav-link" to="/todos">TODOS</Link></li>}

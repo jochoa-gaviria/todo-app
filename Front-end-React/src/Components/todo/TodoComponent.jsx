@@ -20,7 +20,9 @@ class TodoComponent extends Component{
 
     componentDidMount(){
 
-        if(this.state.id===-1) return
+        if(this.state.id===-1) {
+            return
+        }
 
         let username = authenticationService.getLoggedInUserName()
         todoDataService.retrieveTodo(username,this.state.id)

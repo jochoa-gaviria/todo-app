@@ -9,7 +9,7 @@ class HelloWorldService {
     }
 
     executedHelloWorldPathVariableService(name){
-        return axios.get(`http://localhost:8080/hello/path-variable/${name}`)
+        return axios.get(`http://localhost:8080/hello/path-variable/${name}`);
     }
 }
 
