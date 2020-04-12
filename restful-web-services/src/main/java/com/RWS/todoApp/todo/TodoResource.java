@@ -1,4 +1,4 @@
-package com.jochoatest.restfulwebservices.todo;
+package com.RWS.todoApp.todo;
 
 import java.net.URI;
 import java.util.List;

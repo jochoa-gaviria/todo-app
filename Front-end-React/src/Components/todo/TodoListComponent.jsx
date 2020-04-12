@@ -60,9 +60,9 @@ class ListTodosComponent extends Component{
                     </tbody>
                 </table>
                <div className="container">
-                    <div className="row justify-content-md-center">
-                        <div className="row col-lg-3">
-                            <button className="btn btn-outline-success col-md-3" onClick={this.addTodoClicked}>Add new todo</button>
+                    <div className="row justify">
+                        <div className="row col-lg-6">
+                            <button className="btn btn-outline-success col-md-5" onClick={this.addTodoClicked}>Add new todo</button>
                         </div>
                     </div>
                </div>

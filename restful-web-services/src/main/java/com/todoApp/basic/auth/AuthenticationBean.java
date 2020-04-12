@@ -1,9 +1,9 @@
-package com.jochoatest.restfulwebservices.helloworld;
+package com.todoApp.basic.auth;
 
-public class HelloWorldBean {
+public class AuthenticationBean {
 	private String message;
 	
-	public HelloWorldBean(String message) {
+	public AuthenticationBean(String message) {
 		this.message = message;
 	}
 

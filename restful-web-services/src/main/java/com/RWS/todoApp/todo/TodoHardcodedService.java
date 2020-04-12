@@ -1,4 +1,4 @@
-package com.jochoatest.restfulwebservices.todo;
+package com.RWS.todoApp.todo;
 
 import java.util.ArrayList;
 import java.util.Date;
