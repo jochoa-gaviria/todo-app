@@ -32,8 +32,8 @@ class ListTodosComponent extends Component{
     return (
         <div>
             <h1>List Todos</h1>
-            {this.state.message && <div className="alert alert-success">{this.state.message}</div>}
             <div className="table-wrapper-scroll-y my-custom-scrollbar">
+            {this.state.message && <div className="alert alert-success">{this.state.message}</div>}
                 <table className="table table-striped mb-0">
                     <thead>
                         <tr>
@@ -59,13 +59,13 @@ class ListTodosComponent extends Component{
                         }
                     </tbody>
                 </table>
-               <div className="container">
-                    <div className="row justify">
-                        <div className="row col-lg-6">
-                            <button className="btn btn-outline-success col-md-5" onClick={this.addTodoClicked}>Add new todo</button>
-                        </div>
+            </div>
+            <div className="container">
+                <div className="row justify">
+                    <div className="row col-lg-6">
+                        <button className="btn btn-outline-success col-md-5" onClick={this.addTodoClicked}>Add new todo</button>
                     </div>
-               </div>
+                </div>
             </div>
         </div>
         )
