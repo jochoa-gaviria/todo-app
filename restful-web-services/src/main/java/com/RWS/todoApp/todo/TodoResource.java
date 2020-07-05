@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins={"http://localhost:4200", "http://localhost:5000", "https://test-9ff12.web.app", "test-9ff12.firebaseapp.com"})
 public class TodoResource {
 
 	@Autowired
